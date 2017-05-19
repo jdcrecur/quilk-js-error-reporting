@@ -1,12 +1,23 @@
 (function( url ) {
-    url = document.getElementById('quilk-js-error-reporting').getAttribute('data-url') || url;
-
-    console.log(document.getElementById('quilk-js-error-reporting').innerHTML );
+    var script = document.getElementById('quilk-js-error-reporting'),
+        inner = script.getAttribute('data-extra-json'),
+        extra = {},
+        a;
+    url = script.getAttribute('data-url') || url;
+    if( inner !== false ){
+        try{
+            a = JSON.parse( inner );
+            extra = a;
+        } catch( e ) {
+            console.log( 'Could not JSON.parse');
+        }
+    }
 
     window.onerror = function(messageOrEvent, source, lineno, colno, error) {
         try {
             StackTrace.fromError(error).then(function (trace) {
                 var data = ({
+                    extra_data: extra,
                     url: window.location.href,
                     messageOrEvent: messageOrEvent,
                     source: source,
