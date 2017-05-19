@@ -38,7 +38,7 @@ You may add even more data to your reports, again with a simple attribute `data-
 <script src="<path to node modules>/dist/quilk-js-error-reporting.js" 
         id="quilk-js-error-reporting"
         data-url="/some-other-url"
-        data-parse-inner='{"this":"is a test of even more data to analyse"}'
+        data-extra-json='{"this":"is a test of even more data to analyse"}'
 ></script>
 ```
 
