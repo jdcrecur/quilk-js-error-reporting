@@ -1,0 +1,42 @@
+{
+  "modules" : [
+    {
+      "name" : "Build js",
+      "module": "js_fixed",
+      "files": [
+        "/node_modules/detect.js/detect.js",
+        "/node_modules/stacktrace-js/dist/stacktrace.js",
+        "/index.js"
+      ],
+      "target": "/dist/quilk-js-error-reporting.js"
+    }
+  ],
+
+  "dont_watch": [
+    "/dist/"
+  ],
+
+  "release_commands_or_modules": {
+    "prod":{
+      "post": [{
+        "name": "minify the js",
+        "module": "node_minify",
+        "type":"uglifyjs",
+        "input":[ "/dist/quilk-js-error-reporting.js" ],
+        "target": "/dist/quilk-js-error-reporting.min.js"
+      }]
+    }
+  },
+
+  "developers" : {
+    "default": {
+      "platform": "windows",
+      "notifier": {
+        "on": false,
+        "style": "WindowsBalloon",
+        "time": 5000,
+        "sound": true
+      }
+    }
+  }
+}
