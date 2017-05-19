@@ -1,7 +1,7 @@
 {
   "name": "quilk-js-error-reporting",
-  "version": "1.0.0",
-  "description": "Capture and send client-side errors from your production environments as they happen and for free.",
+  "version": "1.0.1",
+  "description": "Capture and send client-side errors from your production environments as they happen and for free. Add as much extra custom data to each report as you need.",
   "main": "dist/quilk-js-error-reporting.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
